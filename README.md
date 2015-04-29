@@ -1,4 +1,4 @@
-# idoulist
+# iDoulist
 # 爱豆列
 ~ idoulist
 ## 简述
@@ -12,8 +12,8 @@
 ## 成员
 
 - [Frank Hu](https://github.com/Frank-the-Obscure), [教程](https://www.gitbook.com/book/frank-the-obscure/pythoncamp0/details)
-- [成员2姓名](github 链接), [教程](gitbook 链接)
-- ...
+- [zshaolin](https://github.com/zshaolin), [教程](https://github.com/zshaolin/pythoncamp0)
+- [Iris Lee](https://github.com/nicetag), [教程](?)
 
 ## 目标
 作品功能说明:
@@ -106,8 +106,8 @@
     - 准备演示
 
 ## 资源
-- 日报入口:
-- 仓库入口:
+- [日报入口](https://github.com/Frank-the-Obscure/iDoulist/wiki/Daily-report)
+- [仓库入口](https://github.com/Frank-the-Obscure/iDoulist)
 - 参考:
-    - 文档链接
+    - [文档链接](https://github.com/Frank-the-Obscure/iDoulist/blob/master/README.md)
     - ....
