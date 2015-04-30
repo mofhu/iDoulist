@@ -13,7 +13,8 @@
 
 - [Frank Hu](https://github.com/Frank-the-Obscure), [教程](https://www.gitbook.com/book/frank-the-obscure/pythoncamp0/details)
 - [zshaolin](https://github.com/zshaolin), [教程](https://github.com/zshaolin/pythoncamp0)
-- [Iris Lee](https://github.com/nicetag), [教程](?)
+- [Iris Lee](https://github.com/nicetag), [教程?](?)
+- [huhu zhu](https://github.com/huhu8), [教程](https://github.com/huhu8/pythoncamp0)
 
 ## 目标
 作品功能说明:
