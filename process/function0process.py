@@ -6,10 +6,10 @@
 list = ['http://book.douban.com/subject/1139336/',
         'http://book.douban.com/subject/25724948/']
  
-print 'input list is :', list # for debug,éš¾é“åœ¨inputé˜¶æ®µä¸è¾“å‡ºç”¨äºdebugå—
+print 'input list is :', list # for debug,ÄÑµÀÔÚinput½×¶Î²»Êä³öÓÃÓÚdebugÂğ
  
 new_list = list
- 
+return new_list
 print 'new list is :', new_list # for debug
  
 # use new_list for output module
