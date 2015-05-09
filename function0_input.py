@@ -6,11 +6,10 @@ import re
 import urllib2
 
 # get url from UI module for test
-input_url = 'http://www.douban.com/doulist/38390646/'
-
-doulist_content = doulist_url_to_list(input_url)
-
-print doulist_content
+def main():
+    input_url = 'http://www.douban.com/doulist/38390646/'
+    doulist_content = doulist_url_to_list(input_url)
+    print doulist_content
 
 # the list doulist_content is to be sent to process module
 
@@ -22,6 +21,7 @@ def doulist_url_to_list(doulist_url):
 	# and then cut unwanted parts (of course its an better algorithm as it is O(n))
     doulist_content = re.findall('http://book.douban.com/subject/[0-9]*/', 
 	                              response.read())
+    # limited function now: only first 25 book in a long list is get.
     remove_duplicate_element(doulist_content)
     return doulist_content
 
@@ -35,3 +35,6 @@ def remove_duplicate_element(list):
                 del list[j]
             j += 1
         i += 1
+
+if __name__=='__main__':
+    main()
