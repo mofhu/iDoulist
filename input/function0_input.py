@@ -27,12 +27,12 @@ def doulist_url_to_list(doulist_url):
         if not s:
             break
         else:
+            remove_duplicate_element(s)
             doulist_content.append(s)
             i += 25
     # limited function now: only first 25 book in a long list is get.
-    
-    # 没有返回值，没有作用，另：豆瓣本身已经把重复的条目去掉了
-    # remove_duplicate_element(doulist_content)
+
+    #remove_duplicate_element(doulist_content)
     return doulist_content
 
 # remove duplicate of a list
