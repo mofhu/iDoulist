@@ -31,4 +31,4 @@
 ## 如何安装使用: 
 - 在 OS X 10.10.4 测试
 - Python 2.7.9
-- 下载整个文件夹后, 运行 function0_MVP.py 即可实现功能0
+- 下载整个文件夹后, 安装jinja2，运行 function0_MVP.py 即可实现功能0
