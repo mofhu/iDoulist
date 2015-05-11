@@ -17,6 +17,7 @@ def output_file(output_doulist):
 	file_target = file('iDoulist.md', 'w')
 	file_target.write('iDoulist: your input doulist link contains: \n')
 	for i in output_doulist:
-		file_target.write(i + '\n')
+		for ii in i:
+			file_target.write(ii + '\n')
 	print 'iDoulist: your input Doulist is exported as iDoulist.md'
 	file_target.close()
