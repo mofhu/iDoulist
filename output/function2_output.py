@@ -9,42 +9,35 @@
 import pyautogui
 import time
 
-pyautogui.PAUSE = 1 # 1.5 second pause after each call
+pyautogui.PAUSE = 1 # 1 second pause after each call by pyautogui
 
-# first test
-
-# 添加内容 = 519, 386
-# 获取网页内容 = 708, 543
-# 添加 = 726,713
+# and more: any robustness?
 
 test_list = ['http://book.douban.com/subject/1059751/',
-'http://book.douban.com/subject/1223043/',
-'http://book.douban.com/subject/26326498/',
-'http://book.douban.com/subject/25967509/',
-'http://book.douban.com/subject/10352395/',
-'http://book.douban.com/subject/6047885/',
-'http://book.douban.com/subject/25850377/',
-'http://book.douban.com/subject/2370630/',
-'http://book.douban.com/subject/1898860/',
-'http://book.douban.com/subject/26288194/',
-'http://book.douban.com/subject/25881360/']
+'http://book.douban.com/subject/1223043/']
 
 print test_list
 
+# test for find button
+print pyautogui.locateOnScreen('add_button.png')
+
 def output_doulist(input_list):
-	# first change focus in browser
-	pyautogui.click(519, 386)
-	for i in input_list:
-		# add  
-		time.sleep(5)
-		pyautogui.click(519, 386)
-		time.sleep(3)
-		pyautogui.typewrite(i)
-		pyautogui.press('enter')
-		time.sleep(5)
-		pyautogui.press('tab')
-		pyautogui.press('tab')
-		pyautogui.press('tab')
-		pyautogui.press('enter')
+    # 1. find button and change focus in browser
+    button_pos = pyautogui.locateOnScreen('add_button.png')
+    pyautogui.click(button_pos)
+    for i in input_list:
+        # 2. press button 
+        time.sleep(5)
+        pyautogui.click(button_pos)
+        # 3. write link
+        time.sleep(3)
+        pyautogui.typewrite(i)
+        pyautogui.press('enter')
+        # 4. add to Doulist
+        time.sleep(5)
+        pyautogui.press('tab')
+        pyautogui.press('tab')
+        pyautogui.press('tab')
+        pyautogui.press('enter')
 
 output_doulist(test_list)

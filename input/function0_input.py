@@ -28,7 +28,8 @@ def doulist_url_to_list(doulist_url):
             break
         else:
             remove_duplicate_element(s)
-            doulist_content.append(s)
+            for j in s:
+                doulist_content.append(j)
             i += 25
     # limited function now: only first 25 book in a long list is get.
 
