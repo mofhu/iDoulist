@@ -9,22 +9,23 @@
 import pyautogui
 import time
 
-pyautogui.PAUSE = 1 # 1 second pause after each call by pyautogui
-
-# and more: any robustness?
-
-test_list = ['http://book.douban.com/subject/1059751/',
-'http://book.douban.com/subject/1223043/']
-
-print test_list
-
-# test for find button
-print pyautogui.locateOnScreen('add_button.png')
+pyautogui.PAUSE = 0.5 # 1 second pause after each call by pyautogui
 
 def output_doulist(input_list):
     # 1. find button and change focus in browser
-    button_pos = pyautogui.locateOnScreen('add_button.png')
-    pyautogui.click(button_pos)
+    button_pos = pyautogui.locateOnScreen('output/add_button.png')
+    if not button_pos: 
+        # no valid button        
+        print 'No valid button found in screen, please check before import to Doulist.'
+        return
+    elif len(list(pyautogui.locateAllOnScreen('output/add_button.png'))) > 1:
+        # more than one valid button
+        print 'More than one button found in screen, please check before import to Doulist.'
+        return
+    else:
+        # valid input: only one button available
+        # remaining issue: the picture is not alwas found in screen...that's strange.
+        pyautogui.click(button_pos)
     for i in input_list:
         # 2. press button 
         time.sleep(5)
@@ -39,5 +40,5 @@ def output_doulist(input_list):
         pyautogui.press('tab')
         pyautogui.press('tab')
         pyautogui.press('enter')
+    print 'Output to Doulist at screen finished.'
 
-output_doulist(test_list)

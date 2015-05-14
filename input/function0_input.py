@@ -18,6 +18,7 @@ def doulist_url_to_list(doulist_url):
     i = 0
     doulist_content = []
     while 1:
+        print doulist_url + "?start={0}&sort=time".format(i)
         response = urllib2.urlopen(doulist_url + "?start={0}&sort=time".format(i))
         # use re.findall to get a raw match (as douban.com show twice a input list.)
         # as the time to remove duplicate accumulates, better way is match only once,
