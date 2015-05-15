@@ -1,19 +1,11 @@
-# iDoulist
-# 爱豆列
-~ iDoulist
+# iDoulist 爱豆列
 ## 简述
 - 我们观察到在豆瓣进行图书豆列管理时的一些问题:
   1. 不能实现在指定豆列中找书,当豆列很长(如开智书单)时尤其麻烦
   2. 无法比较几个豆列是否重叠
   3. 无法导出豆列(及书籍信息)到文件永久保存
 - 我们认为这些问题都可以通过人工重复劳动来解决,但繁琐并耗时,不是长久之计.对于开智群友更是时间的巨大浪费.
-- 所以iDoulist可以来解决豆列的这些问题,把豆瓣的大量书籍信息用得更方便.
-
-## 成员
-- [Frank Hu](https://github.com/Frank-the-Obscure), [教程](https://www.gitbook.com/book/frank-the-obscure/pythoncamp0/details)
-- [zshaolin](https://github.com/zshaolin), [教程](https://github.com/zshaolin/pythoncamp0)
-- [Iris Lee](https://github.com/nicetag), [教程?](?)
-- [huhu zhu](https://github.com/huhu8), [教程](https://github.com/huhu8/pythoncamp0)
+- 所以 iDoulist 被设计来解决豆列的这些问题, 帮助我们更加方便地使用豆瓣的大量书籍信息.
 
 ## 作品功能说明:
 - 功能0: 导出豆列内容
@@ -32,3 +24,12 @@
 - 在 OS X 10.10.4 测试
 - Python 2.7.9
 - 下载整个文件夹后, 安装jinja2，运行 function0_MVP.py 即可实现功能0
+- 输出到豆列: 需要安装 [PyAutoGUI](http://pyautogui.readthedocs.org/en/latest/install.html). 
+  - In OS X, 依次安装 pyobjc-core, pyobjc 及 PyAutoGUI
+  - 目前原型测试仅在 Chrome (42.0.2311.152) 中进行
+
+## 成员
+- [Frank Hu](https://github.com/Frank-the-Obscure), [教程](https://www.gitbook.com/book/frank-the-obscure/pythoncamp0/details)
+- [Iris Lee](https://github.com/nicetag), [教程?](?)
+- [huhu zhu](https://github.com/huhu8), [教程](https://github.com/huhu8/pythoncamp0)
+- [zshaolin](https://github.com/zshaolin), [教程](https://github.com/zshaolin/pythoncamp0)
