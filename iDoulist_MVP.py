@@ -24,5 +24,5 @@ print output_list # debug
 # output to file and CLI
 # output to markdown file and CLI
 function0_output.output_CLI(output_list)
-function0_output.output_file(output_list)
+function0_output.output_file(output_list) # minor bug in this file
 function2_output.output_doulist(output_list)
