@@ -24,8 +24,15 @@
 - 在 OS X 10.10.4 测试
 - Python 2.7.9
 - 下载整个文件夹后, 安装jinja2，运行 function0_MVP.py 即可实现功能0
-- 输出到豆列: 需要安装 [PyAutoGUI](http://pyautogui.readthedocs.org/en/latest/install.html). 
+  - 如果不想安装 jinja2, 可运行 function0_MYP_plain.py
+- 功能2 输出到豆列: 
+  - 需要安装 [PyAutoGUI](http://pyautogui.readthedocs.org/en/latest/install.html). 
   - In OS X, 依次安装 pyobjc-core, pyobjc 及 PyAutoGUI
+  - 运行 iDoulist_MVP.py
+  - 正确输出到豆列, 需要在当前屏幕中有一个豆瓣页面, 并显示出"添加内容"按钮
+  - 运行过程中由于 PyAutoGUI 会进行鼠标键盘操作, 不建议同时进行任何其它操作.
+  - 长豆列的导入可能会需要几分钟甚至几十分钟
+  - 如需停止, 可把鼠标移动到屏幕左上角, 或进入 terminal 按 Ctrl-C
   - 目前原型测试仅在 Chrome (42.0.2311.152) 中进行
 
 ## 成员
