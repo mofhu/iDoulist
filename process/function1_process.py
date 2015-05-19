@@ -28,10 +28,14 @@ def remove_duplicate_element(list):
         i += 1
 
 # common elements in two list
-def common(list1,list2):
+def common(list1, list2):
     list_common = []
     for i in list1:
         for j in list2:
             if j == i:
                 list_common.append(j)
     return list_common
+
+# list minus
+def minus(list1, list2):
+	return list(set(list1) - set(list2))
