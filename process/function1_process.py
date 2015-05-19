@@ -9,8 +9,9 @@ def copy(input_list):
 
 # combine two list
 def combine(list1, list2):
-    list_combine = list1
-    # 测试发现列表赋值传递的是指针! 使用这行代码会导致 list1 的值在函数运行后发生变化
+    list_combine = []
+    for i in list1:
+        list_combine.append(i)
     for i in list2:
         list_combine.append(i)
     remove_duplicate_element(list_combine) #注意这里我重用了已有的轮子(去重函数)
