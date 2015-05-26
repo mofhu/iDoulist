@@ -33,7 +33,6 @@ def input_test(*args):
     global idoulist_content
     value = str(doulist_input1.get())
     idoulist_content = function0_input.doulist_url_to_list(value)
-    print 'test %s' % doulist_input1.get() #test
     length = 'iDoulist: there are %d books in the list now.' % len(idoulist_content)
     status.set(length)
 
@@ -57,6 +56,14 @@ def combine(*args):
     length = 'iDoulist: there are %d books in the list now.' % len(idoulist_content)
     status.set(length)
 
+def common(*args):
+    global idoulist_content
+    list1 = function0_input.doulist_url_to_list(str(doulist_input1.get()))
+    list2 = function0_input.doulist_url_to_list(str(doulist_input2.get()))
+    idoulist_content = function1_process.common(list1, list2)
+    length = 'iDoulist: there are %d books in the list now.' % len(idoulist_content)
+    status.set(length)
+
 root = Tk()
 root.title("iDoulist")
 
@@ -72,7 +79,7 @@ status.set('iDoulist status: List is blank')
 ttk.Label(mainframe, textvariable=status).grid(column=1, row=4, sticky=W)
 ttk.Button(mainframe, text="Input", command=input_test).grid(column=1, row=3, sticky=W)
 ttk.Button(mainframe, text="Combine Doulists", command=combine).grid(column=2, row=3, sticky=W)
-ttk.Button(mainframe, text="Books in common", command=combine).grid(column=3, row=3, sticky=W)
+ttk.Button(mainframe, text="Books in common", command=common).grid(column=3, row=3, sticky=W)
 ttk.Button(mainframe, text="Output CLI", command=output_CLI).grid(column=1, row=5, sticky=W)
 ttk.Button(mainframe, text="Output file", command=output_file).grid(column=2, row=5, sticky=W)
 ttk.Button(mainframe, text="Output Doulist", command=output_doulist).grid(column=3, row=5, sticky=W)
