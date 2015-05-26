@@ -16,11 +16,11 @@ def output_doulist(input_list):
     button_pos = pyautogui.locateOnScreen('output/add_button.png')
     if not button_pos: 
         # no valid button        
-        print 'No valid button found in screen, please check before import to Doulist.'
+        print '没有找到有效的"添加内容"按钮, 请检查后再次导出.'
         return
     elif len(list(pyautogui.locateAllOnScreen('output/add_button.png'))) > 1:
         # more than one valid button
-        print 'More than one button found in screen, please check before import to Doulist.'
+        print '屏幕中有多个有效的"添加内容"按钮, 请检查后再次导出.'
         return
     else:
         # valid input: only one button available
@@ -40,5 +40,5 @@ def output_doulist(input_list):
         pyautogui.press('tab')
         pyautogui.press('tab')
         pyautogui.press('enter')
-    print 'Output to Doulist at screen finished.'
+    print 'iDoulist: 书籍列表已被添加到屏幕上的豆列中.'
 
