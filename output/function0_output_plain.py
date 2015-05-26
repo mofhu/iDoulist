@@ -9,16 +9,16 @@ output_list = ['http://book.douban.com/subject/1139336/',
 '''
 
 def output_CLI(output_doulist):
-	print 'iDoulist: your input doulist link contains: '
+	print 'iDoulist: 导出的豆列包含以下书籍'
 	for i in output_doulist:
 		print i
 
 def output_file(output_doulist):
 	file_target = file('iDoulist.md', 'w')
-	file_target.write('# iDoulist: your input doulist link contains: \n\n')
+	file_target.write('# iDoulist: 导出的豆列包含以下书籍 \n\n')
 	for i in output_doulist:
 		file_target.write(i + '\n\n')
-	print 'iDoulist: your input Doulist is exported as iDoulist.md'
+	print 'iDoulist: 书籍列表已被导出为 iDoulist.md'
 	file_target.close()
 
 '''

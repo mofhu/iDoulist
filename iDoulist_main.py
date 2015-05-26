@@ -29,12 +29,11 @@ import ttk
 
 idoulist_content = [] # 项目保存的列表: 一切操作围绕着这个列表进行.
 
-def input_test(*args):
+def get_doulist(*args):
     global idoulist_content
     value = str(doulist_input1.get())
     idoulist_content = function0_input.doulist_url_to_list(value)
-    print 'test %s' % doulist_input1.get() #test
-    length = 'iDoulist: there are %d books in the list now.' % len(idoulist_content)
+    length = 'iDoulist: %d 本图书已存.' % len(idoulist_content)
     status.set(length)
 
 def output_CLI(*args):
@@ -54,7 +53,15 @@ def combine(*args):
     list1 = function0_input.doulist_url_to_list(str(doulist_input1.get()))
     list2 = function0_input.doulist_url_to_list(str(doulist_input2.get()))
     idoulist_content = function1_process.combine(list1, list2)
-    length = 'iDoulist: there are %d books in the list now.' % len(idoulist_content)
+    length = 'iDoulist: %d 本图书已存.' % len(idoulist_content)
+    status.set(length)
+
+def common(*args):
+    global idoulist_content
+    list1 = function0_input.doulist_url_to_list(str(doulist_input1.get()))
+    list2 = function0_input.doulist_url_to_list(str(doulist_input2.get()))
+    idoulist_content = function1_process.common(list1, list2)
+    length = 'iDoulist: %d 本图书已存.' % len(idoulist_content)
     status.set(length)
 
 root = Tk()
@@ -65,17 +72,17 @@ mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
 mainframe.columnconfigure(0, weight=1)
 mainframe.rowconfigure(0, weight=1)
 
-ttk.Label(mainframe, text="Input Doulist url1").grid(column=1, row=1, sticky=W)
-ttk.Label(mainframe, text="Input Doulist url2").grid(column=2, row=1, sticky=W)
+ttk.Label(mainframe, text="输入豆列 1 的URL:").grid(column=1, row=1, sticky=W)
+ttk.Label(mainframe, text="输入豆列 2 的URL:").grid(column=2, row=1, sticky=W)
 status = StringVar()
-status.set('iDoulist status: List is blank')
+status.set('iDoulist: 目前没有图书.')
 ttk.Label(mainframe, textvariable=status).grid(column=1, row=4, sticky=W)
-ttk.Button(mainframe, text="Input", command=input_test).grid(column=1, row=3, sticky=W)
-ttk.Button(mainframe, text="Combine Doulists", command=combine).grid(column=2, row=3, sticky=W)
-ttk.Button(mainframe, text="Books in common", command=combine).grid(column=3, row=3, sticky=W)
-ttk.Button(mainframe, text="Output CLI", command=output_CLI).grid(column=1, row=5, sticky=W)
-ttk.Button(mainframe, text="Output file", command=output_file).grid(column=2, row=5, sticky=W)
-ttk.Button(mainframe, text="Output Doulist", command=output_doulist).grid(column=3, row=5, sticky=W)
+ttk.Button(mainframe, text="导入豆列 1 的图书", command=get_doulist).grid(column=1, row=3, sticky=W)
+ttk.Button(mainframe, text="导入两个豆列的合并", command=combine).grid(column=2, row=3, sticky=W)
+ttk.Button(mainframe, text="导入两个豆列共同的图书", command=common).grid(column=3, row=3, sticky=W)
+ttk.Button(mainframe, text="输出到命令行", command=output_CLI).grid(column=1, row=5, sticky=W)
+ttk.Button(mainframe, text="输出到文件", command=output_file).grid(column=2, row=5, sticky=W)
+ttk.Button(mainframe, text="输出到豆列", command=output_doulist).grid(column=3, row=5, sticky=W)
 
 url1 = StringVar()
 doulist_input1 = ttk.Entry(mainframe, width=25, textvariable=url1)
