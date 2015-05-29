@@ -62,4 +62,10 @@ def tag_cloud(book_list):
     plt.axis("off")
     plt.show()
 
-#tag_cloud(book_list)
+# test code
+'''
+tag_list = (['5000',5000],['200',200],['20',20],['1000',1000])
+wordcloud = WordCloud(font_path='WeibeiSC-Bold.otf',ranks_only=False).generate_from_frequencies(tag_list)
+plt.imshow(wordcloud)
+plt.axis("off")
+plt.show()'''
