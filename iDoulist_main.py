@@ -6,7 +6,7 @@ from UI import function0_UI
 #from UI import GUI_tk
 from input import function0_input
 from process import function0_process, function1_process
-from output import function0_output_plain, function2_output
+from output import function0_output_plain, function2_output, output_tag_cloud
 
 # get input from CLI
 #input_url = function0_UI.doulist_input()
@@ -48,6 +48,11 @@ def output_doulist(*args):
     global idoulist_content
     function2_output.output_doulist(idoulist_content)
 
+def output_tag(*args):
+    global idoulist_content
+    output_tag_cloud.tag_cloud(idoulist_content)
+
+
 def combine(*args):
     global idoulist_content
     list1 = function0_input.doulist_url_to_list(str(doulist_input1.get()))
@@ -67,7 +72,7 @@ def common(*args):
 root = Tk()
 root.title("iDoulist")
 
-mainframe = ttk.Frame(root, padding="3 5 20 20")
+mainframe = ttk.Frame(root, padding="3 6 20 20")
 mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
 mainframe.columnconfigure(0, weight=1)
 mainframe.rowconfigure(0, weight=1)
@@ -83,6 +88,7 @@ ttk.Button(mainframe, text="导入两个豆列共同的图书", command=common).
 ttk.Button(mainframe, text="输出到命令行", command=output_CLI).grid(column=1, row=5, sticky=W)
 ttk.Button(mainframe, text="输出到文件", command=output_file).grid(column=2, row=5, sticky=W)
 ttk.Button(mainframe, text="输出到豆列", command=output_doulist).grid(column=3, row=5, sticky=W)
+ttk.Button(mainframe, text="输出豆列标签云", command=output_tag).grid(column=2, row=6, sticky=W)
 
 url1 = StringVar()
 doulist_input1 = ttk.Entry(mainframe, width=25, textvariable=url1)
