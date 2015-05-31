@@ -5,6 +5,8 @@
 import re
 import urllib2
 import os
+from os import path
+from wordcloud import WordCloud
 
 def get_frequencies_book(book_url, frequencies):
     response = urllib2.urlopen(book_url)
@@ -43,7 +45,6 @@ def get_frequencies_list(book_list, frequencies):
         get_frequencies_book(book_url, frequencies)
     return frequencies
 
-
 def bubble_sort(fre_list):
     bubble_sorted = [] # sorted sequence
     i = 0
@@ -59,28 +60,18 @@ def bubble_sort(fre_list):
     fre_list = bubble_sorted
     return fre_list
 
-def norm_fre(fre_list):
-    '''
-    norm_factor = float(fre_list[0][1] / 100) # first book's count
-    for i in fre_list:
-        i[1] = float(i[1]) / norm_factor '''
-    return fre_list
-
-from os import path
-from wordcloud import WordCloud
-
 def tag_cloud(book_list):
     frequencies = []
     path.exists('/Users/FrankHu/Library/Fonts/WeibeiSC-Bold.otf')
 
     frequencies = get_frequencies_list(book_list, frequencies)
     
-    # use two functions to sort and normalize data, for better visualization
-    # 也可修改 word cloud, 但用户修改起来不现实, 所以只好把数据处理成适合 word cloud 进行可视化的形式.
+    # use one/two functions to sort and normalize data, for better visualization
+    # 也可修改 word cloud, 但用户修改起来不现实, 所以暂时把数据处理成适合 word cloud 进行可视化的形式.
     frequencies = bubble_sort(frequencies)
 
     wordcloud = WordCloud(font_path='WeibeiSC-Bold.otf', width=800, height=400, max_words=100, max_font_size=250).generate_from_frequencies(frequencies).to_file('iDoulist_tag_cloud.png')
-    os.system('open iDoulist_tag_cloud.png')
+    os.system('open iDoulist_tag_cloud.png') # output tag cloud picture
 
 # test code
 def main():
