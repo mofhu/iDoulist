@@ -4,8 +4,7 @@
 
 import re
 import urllib2
-
-
+import os
 
 def get_frequencies_book(book_url, frequencies):
     response = urllib2.urlopen(book_url)
@@ -25,11 +24,11 @@ def get_frequencies_book(book_url, frequencies):
         #print [unicode(i_tag, 'utf8'), i_count.group()] # unicode 编码才可正确打印
         for known_tag in frequencies:
             if known_tag[0] == unicode(i_tag, 'utf8'):
-                known_tag[1] += int(i_count.group())
+                known_tag[1] += float(i_count.group())
                 print known_tag[0], known_tag[1], 'get'#testing
                 duplicate = 1
         if not duplicate:
-            frequencies.append([unicode(i_tag, 'utf8'), int(i_count.group())])
+            frequencies.append([unicode(i_tag, 'utf8'), float(i_count.group())])
     return frequencies
 
 def get_frequencies_list(book_list, frequencies):
@@ -60,9 +59,14 @@ def bubble_sort(fre_list):
     fre_list = bubble_sorted
     return fre_list
 
+def norm_fre(fre_list):
+    '''
+    norm_factor = float(fre_list[0][1] / 100) # first book's count
+    for i in fre_list:
+        i[1] = float(i[1]) / norm_factor '''
+    return fre_list
 
 from os import path
-import matplotlib.pyplot as plt
 from wordcloud import WordCloud
 
 def tag_cloud(book_list):
@@ -75,26 +79,25 @@ def tag_cloud(book_list):
     # 也可修改 word cloud, 但用户修改起来不现实, 所以只好把数据处理成适合 word cloud 进行可视化的形式.
     frequencies = bubble_sort(frequencies)
 
-
-    wordcloud = WordCloud(font_path='WeibeiSC-Bold.otf').generate_from_frequencies(frequencies)
-    # Open a plot of the generated image.
-    plt.imshow(wordcloud)
-    plt.axis("off")
-    plt.show()
+    wordcloud = WordCloud(font_path='WeibeiSC-Bold.otf', width=800, height=400, max_words=100, max_font_size=250).generate_from_frequencies(frequencies).to_file('iDoulist_tag_cloud.png')
+    os.system('open iDoulist_tag_cloud.png')
 
 # test code
-
 def main():
-    frequencies = [[u'C', 22], [u'编程', 134], [u'c语言', 1363], [u'计算机', 803], [u'程序设计', 715]]
-    frequencies = bubble_sort(frequencies)
-    for i in frequencies:
-        print i[0], i[1]
-    print frequencies
-    wordcloud = WordCloud(font_path='WeibeiSC-Bold.otf').generate_from_frequencies(frequencies)
-# Open a plot of the generated image.
-    plt.imshow(wordcloud)
-    plt.axis("off")
-    plt.show()
+
+    frequencies = [[u'Linux', 2795.0], [u'\u601d\u7ef4', 1418.0], [u'\u8ba1\u7b97\u673a', 1191.0], 
+                   [u'\u7f16\u7a0b', 1003.0], [u'\u8f6f\u4ef6\u5f00\u53d1', 704.0], [u'\u7a0b\u5e8f\u5458', 649.0], 
+                   [u'\u64cd\u4f5c\u7cfb\u7edf', 632.0], [u'\u8f6f\u4ef6\u5de5\u7a0b', 555.0], 
+                   [u'\u7a0b\u5e8f\u5458\u7684\u601d\u7ef4\u4fee\u70bc', 470.0], [u'\u9e1f\u54e5', 450.0], 
+                   [u'Linux\\/Unix', 283.0], [u'\u8ba4\u77e5', 252.0], [u'\u7f16\u7a0b\u827a\u672f', 190.0], 
+                   [u'IT', 185.0], [u'\u7a0b\u5e8f\u8bbe\u8ba1', 173.0], [u'\u7a0b\u5e8f\u5458\u7684\u4fee\u70bc\u4e4b\u9053', 152.0], 
+                   [u'linux', 143.0], [u'vim', 125.0], [u'\u6280\u672f', 121.0], [u'\u9879\u76ee\u7ba1\u7406', 67.0], 
+                   [u'\u8ba1\u7b97\u673a\u79d1\u5b66', 45.0], [u'\u5de5\u5177', 41.0], [u'\u6559\u80b2', 37.0], 
+                   [u'programming', 36.0], [u'Python', 33.0], [u'Vim', 28.0], [u'vi', 22.0], [u'\u5165\u95e8', 8.0], 
+                   [u'python\u521d\u5b66', 6.0], [u'\u7f16\u7a0b\u8bed\u8a00', 3.0], [u'\u7a0b\u5e8f', 2.0]]
+
+    wordcloud = WordCloud(font_path='WeibeiSC-Bold.otf', width=800, height=400, max_words=100, max_font_size=300).generate_from_frequencies(frequencies).to_file('iDoulist_tag_cloud.png')
+    os.system('open iDoulist_tag_cloud.png')
 
 if __name__=='__main__':
     main()
