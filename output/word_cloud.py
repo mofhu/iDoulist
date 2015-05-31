@@ -20,7 +20,7 @@ path.exists('/Users/FrankHu/Library/Fonts/WeibeiSC-Bold.otf')
 # Read the whole text.
 #text = open(path.join(d, 'py.txt')).read()
 
-frequencies = [[u'C', 2144], [u'编程', 1399], [u'c语言', 1363], [u'计算机', 803], [u'程序设计', 715]]
+frequencies = [[u'C', 1399], [u'编程', 2144], [u'c语言', 1363], [u'计算机', 803], [u'程序设计', 715]]
 
 wordcloud = WordCloud(font_path='WeibeiSC-Bold.otf').generate_from_frequencies(frequencies)
 # Open a plot of the generated image.
