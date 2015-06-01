@@ -15,6 +15,9 @@ def main():
 
 def doulist_url_to_list(doulist_url):
     # use urllib to get html data from url
+    if not valid_url(doulist_url):
+        print 'iDoulist: 输入的链接格式不正确, 请重新输入!'
+        return None
     i = 0
     doulist_content = []
     while 1:
@@ -35,6 +38,22 @@ def doulist_url_to_list(doulist_url):
 
     #remove_duplicate_element(doulist_content)
     return doulist_content
+
+def valid_url(doulist_url):
+    valid = 0
+    s = re.search('http://www.douban.com/doulist/[0-9]*/', doulist_url)
+    if s: #是豆列链接格式
+        valid = 1
+        return valid
+    else:
+        valid = 0
+    s = re.search('http://book.douban.com/people/.*?/do|http://book.douban.com/people/.*?/wish|http://book.douban.com/people/.*?/collect', doulist_url)
+    if s: #是想读链接格式
+        valid = 1
+        return valid
+    else:
+        valid = 0
+    return valid
 
 # remove duplicate of a list
 def remove_duplicate_element(list):

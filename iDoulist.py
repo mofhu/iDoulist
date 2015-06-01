@@ -31,10 +31,11 @@ idoulist_content = [] # 项目保存的列表: 一切操作围绕着这个列表
 
 def get_doulist(*args):
     global idoulist_content
-    value = str(doulist_input1.get())
-    idoulist_content = function0_input.doulist_url_to_list(value)
-    length = 'iDoulist: %d 本图书已存.' % len(idoulist_content)
-    status.set(length)
+    url = str(doulist_input1.get())
+    idoulist_content = function0_input.doulist_url_to_list(url)
+    if idoulist_content:
+        length = 'iDoulist: %d 本图书已存.' % len(idoulist_content)
+        status.set(length)
 
 def output_CLI(*args):
     global idoulist_content
@@ -57,17 +58,19 @@ def combine(*args):
     global idoulist_content
     list1 = function0_input.doulist_url_to_list(str(doulist_input1.get()))
     list2 = function0_input.doulist_url_to_list(str(doulist_input2.get()))
-    idoulist_content = function1_process.combine(list1, list2)
-    length = 'iDoulist: %d 本图书已存.' % len(idoulist_content)
-    status.set(length)
+    if list1 and list2:
+        idoulist_content = function1_process.combine(list1, list2)
+        length = 'iDoulist: %d 本图书已存.' % len(idoulist_content)
+        status.set(length)
 
 def common(*args):
     global idoulist_content
     list1 = function0_input.doulist_url_to_list(str(doulist_input1.get()))
     list2 = function0_input.doulist_url_to_list(str(doulist_input2.get()))
-    idoulist_content = function1_process.common(list1, list2)
-    length = 'iDoulist: %d 本图书已存.' % len(idoulist_content)
-    status.set(length)
+    if list1 and list2:
+        idoulist_content = function1_process.common(list1, list2)
+        length = 'iDoulist: %d 本图书已存.' % len(idoulist_content)
+        status.set(length)
 
 root = Tk()
 root.title("iDoulist")
