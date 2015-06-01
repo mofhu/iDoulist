@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Author Frank Hu
+# Author Frank Hu , nicetag
 # iDoulist Function 0 - input
 
 import re
@@ -7,7 +7,7 @@ import urllib2
 
 # get url from UI module for test
 def main():
-    input_url = 'http://www.douban.com/doulist/14090587/'
+    input_url = 'http://www.douban.com/doulist/36764655/'
     doulist_content = doulist_url_to_list(input_url)
     print doulist_content
 
@@ -31,12 +31,19 @@ def doulist_url_to_list(doulist_url):
             break
         else:
             remove_duplicate_element(s)
-            for j in s:
-                doulist_content.append(j)
-            i += 25
+            # doulist url
+            if 'people' not in doulist_url: 
+               for j in s:
+                   doulist_content.append(j)
+               i += 25 
+             # wish/do/collect url   
+            else:   
+               for j in s:
+                   doulist_content.append(j)
+               i += 15      
     # limited function now: only first 25 book in a long list is get.
 
-    #remove_duplicate_element(doulist_content)
+    remove_duplicate_element(doulist_content)
     return doulist_content
 
 def valid_url(doulist_url):
