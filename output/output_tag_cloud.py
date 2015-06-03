@@ -7,6 +7,7 @@ import urllib2
 import os
 from os import path
 from wordcloud import WordCloud
+import time
 
 def get_frequencies_book(book_url, frequencies):
     response = urllib2.urlopen(book_url)
@@ -27,7 +28,6 @@ def get_frequencies_book(book_url, frequencies):
         for known_tag in frequencies:
             if known_tag[0] == unicode(i_tag, 'utf8'):
                 known_tag[1] += float(i_count.group())
-                print known_tag[0], known_tag[1], 'get'#testing
                 duplicate = 1
         if not duplicate:
             frequencies.append([unicode(i_tag, 'utf8'), float(i_count.group())])
@@ -40,9 +40,10 @@ def get_frequencies_list(book_list, frequencies):
         i_book_num = re.search('\d+', i)
         # print i_book_num.group()
         book_url = 'https://api.douban.com/v2/book/' + i_book_num.group() + '?apikey=001ea9652efc79eb005bfc2f8cf56dc1'
-        print book_url
+        # print book_url
         # get frequencies of this book
         get_frequencies_book(book_url, frequencies)
+        time.sleep(1) # delay for douban
     return frequencies
 
 def bubble_sort(fre_list):

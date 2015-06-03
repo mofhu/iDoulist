@@ -28,14 +28,14 @@ def output_doulist(input_list):
         pyautogui.click(button_pos)
     for i in input_list:
         # 2. press button 
-        time.sleep(5)
+        time.sleep(4)
         pyautogui.click(button_pos)
         # 3. write link
-        time.sleep(3)
+        time.sleep(2)
         pyautogui.typewrite(i)
         pyautogui.press('enter')
         # 4. add to Doulist
-        time.sleep(5)
+        time.sleep(2)
         pyautogui.press('tab')
         pyautogui.press('tab')
         pyautogui.press('tab')

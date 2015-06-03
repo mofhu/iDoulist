@@ -4,6 +4,7 @@
 
 import re
 import urllib2
+import time
 
 # get url from UI module for test
 def main():
@@ -21,6 +22,8 @@ def doulist_url_to_list(doulist_url):
     i = 0
     doulist_content = []
     while 1:
+        # print doulist_url + "?start={0}&sort=time".format(i) #final test
+        time.sleep(1) #delay for douban
         response = urllib2.urlopen(doulist_url + "?start={0}&sort=time".format(i))
         # use re.findall to get a raw match (as douban.com show twice a input list.)
         # as the time to remove duplicate accumulates, better way is match only once,
@@ -46,6 +49,7 @@ def doulist_url_to_list(doulist_url):
     remove_duplicate_element(doulist_content)
     return doulist_content
 
+# 判断链接是否合法, 使用 re
 def valid_url(doulist_url):
     valid = 0
     s = re.search('http://www.douban.com/doulist/[0-9]*/', doulist_url)
