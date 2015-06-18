@@ -20,6 +20,9 @@
 - 在 OS X + Python 2.7.9 进行完善测试
 
 ## 如何使用
+
+![iDoulist Guide](misc/idoulist-guide.png)
+
 - 功能使用
   - 输入: 支持输入`豆列` 或 `想读/已读/未读链接`
      - 豆列例: `http://www.douban.com/doulist/37723990/`
