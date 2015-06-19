@@ -23,7 +23,7 @@ def doulist_url_to_list(doulist_url):
     doulist_content = []
     while 1:
         # print doulist_url + "?start={0}&sort=time".format(i) #final test
-        time.sleep(1) #delay for douban
+        time.sleep(1) # 延迟设置, 防止过于频繁的访问
         response = urllib2.urlopen(doulist_url + "?start={0}&sort=time".format(i))
         # use re.findall to get a raw match (as douban.com show twice a input list.)
         # as the time to remove duplicate accumulates, better way is match only once,
@@ -44,7 +44,6 @@ def doulist_url_to_list(doulist_url):
                for j in s:
                    doulist_content.append(j)
                i += 15      
-    # limited function now: only first 25 book in a long list is get.
 
     remove_duplicate_element(doulist_content)
     return doulist_content
@@ -59,6 +58,7 @@ def valid_url(doulist_url):
     else:
         valid = 0
     s = re.search('http://book.douban.com/people/.*?/do|http://book.douban.com/people/.*?/wish|http://book.douban.com/people/.*?/collect', doulist_url)
+    # 上述正则表达式使用了吝啬匹配 .*? 以及 或 | 语法
     if s: #是想读链接格式
         valid = 1
         return valid
@@ -66,7 +66,8 @@ def valid_url(doulist_url):
         valid = 0
     return valid
 
-# remove duplicate of a list
+# remove duplicate of a list, 这个函数的用途是去重. 
+# (用 urllib2 抓取的豆瓣网页中, 书籍链接会出现两次, 因此需去重)
 def remove_duplicate_element(list):
     i = 0
     while i <= len(list) - 1:

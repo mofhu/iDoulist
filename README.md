@@ -35,7 +35,7 @@
          - 需要在当前屏幕中有一个豆瓣页面, 并显示出"添加内容"的绿色按钮(参考 `iDoulist/output/add_button.png`)  
          - 如果软件始终无法识别到有效按钮(提示`没有找到有效的"添加内容"按钮, 请检查后再次导出.`), 请在本地截取绿色按钮图片, 覆盖到 `iDoulist/output/add_button.png`
          - 运行过程中由于 PyAutoGUI 会进行鼠标键盘操作, 不建议同时进行任何其它操作.
-         - 长豆列的导入可能会需要几分钟甚至几十分钟
+         - 长豆列的导出可能会需要几分钟甚至几十分钟
          - 如需停止, 可把鼠标移动到屏幕左上角(启动 PyAutoGUI 的[`Fail-Safes`](http://pyautogui.readthedocs.org/en/latest/introduction.html#fail-safes) 功能), 或进入 terminal 按 Ctrl-C 终止脚本运行
          - 目前测试仅在 Chrome (42.0.2311.152) 中进行, 不保证其它浏览器可运行(特别是按钮图片在不同浏览器中可能不同. 但原则上, 其它浏览器更改图片后应可运行.)
      - 输出标签云图片

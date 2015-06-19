@@ -27,7 +27,7 @@ from output import function0_output_plain, function2_output, output_tag_cloud
 from Tkinter import *
 import ttk
 
-idoulist_content = [] # 项目保存的列表: 一切操作围绕着这个列表进行.
+idoulist_content = [] # 项目保存的临时图书列表: 一切操作围绕着这个列表进行. 全局变量
 
 def get_doulist(*args):
     global idoulist_content
